@@ -1,2 +1,3 @@
-# Admin-Dashboard
+# Admin Dashboard
+
 Web dashboard for The Odin Project
