@@ -1,45 +1,46 @@
 @font-face {
   font-family: Roboto;
-  src: url(./fonts/Roboto-Regular.ttf) format("truetype");
+  src: url(./fonts/Roboto/Roboto-Regular.ttf) format("truetype");
   font-weight: normal;
 }
 
 @font-face {
   font-family: Roboto;
-  src: url(./fonts/Roboto-Bold.ttf) format("truetype");
+  src: url(./fonts/Roboto/Roboto-Bold.ttf) format("truetype");
   font-weight: bold;
 }
 
-@font-face {
+/* @font-face {
   font-family: Roboto;
-  src: url(./fonts/Roboto-Medium.ttf) format("truetype");
+  src: url(./fonts/Roboto/Roboto-Medium.ttf) format("truetype");
   font-weight: medium; 
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-:root {
-  overflow-x: hidden;
-  --navbar-blue: #1992D4;
-  --button-blue: #1992D4;
-  --container-yellow: #F0B429;
+html {
+  font-size: 62.5%;
+  --github-black: #0D1117;
+  --dashboard-blue: #1992D4;
+  --project-yellow: #F0B429;
   --text-grey: #666666;
   --background-light-grey: #E2E8F0;
 }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
 body {
-  min-height: 100vh;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  min-height: 100vh;
+  min-width: calc(100vw - (100vw - 100%));
 }
 
 body > div {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -48,7 +49,7 @@ body > div {
 /* Nav */
 
 nav {
-  background-color: var(--navbar-blue);
+  background-color: var(--dashboard-blue);
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -211,7 +212,7 @@ header {
 }
 
 .container-header-bottom-right > li > button {
-  background-color: var(--button-blue);
+  background-color: var(--dashboard-blue);
   font-family: Roboto, sans-serif;
   font-size: 15px;
   font-weight: bold;
@@ -263,7 +264,7 @@ main {
   padding: 34px 25px 28px;
   box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.15);
   border-radius: 10px;
-  border-left: 8px solid var(--container-yellow);
+  border-left: 8px solid var(--project-yellow);
   justify-content: space-between;
   gap: 35px;
 }
@@ -403,24 +404,19 @@ main {
 /* Footer */
 
 footer {
-  height: 8vh;
   display: flex;
   align-items: center;
-  background-color: #0D1117;
+  background-color: var(--github-black);
+  padding: 12px 40px;
 }
 
 .made-by {
-  color: white;
-  font-size: 15px;
+  font-size: 12px;
   font-family: cursive;
+  color: white;
   margin: 0 auto;
 }
 
-.github-link {
-  position: relative;
-  right: 37.5px;
-}
-
 .github-icon {
-  height: 27.5px;
+  height: 25px;
 }
