@@ -1,20 +1,20 @@
 @font-face {
   font-family: Roboto;
-  src: url(./fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+  src: url(./fonts/Roboto/Roboto-Regular.ttf) format('truetype');
   font-weight: normal;
 }
 
 @font-face {
   font-family: Roboto;
-  src: url(./fonts/Roboto/Roboto-Bold.ttf) format("truetype");
-  font-weight: bold;
+  src: url(./fonts/Roboto/Roboto-Medium.ttf) format('truetype');
+  font-weight: medium;
 }
 
-/* @font-face {
+@font-face {
   font-family: Roboto;
-  src: url(./fonts/Roboto/Roboto-Medium.ttf) format("truetype");
-  font-weight: medium; 
-} */
+  src: url(./fonts/Roboto/Roboto-Bold.ttf) format('truetype');
+  font-weight: bold;
+}
 
 * {
   margin: 0;
@@ -27,23 +27,19 @@ html {
   --github-black: #0D1117;
   --dashboard-blue: #1992D4;
   --project-yellow: #F0B429;
-  --text-grey: #666666;
+  --text-grey: #8a8a8a;
   --background-light-grey: #E2E8F0;
 }
 
 body {
-  display: inline-flex;
-  flex-direction: column;
+  /* display: inline-flex; */
+  /* flex-direction: column; */
   min-height: 100vh;
   min-width: calc(100vw - (100vw - 100%));
-}
-
-body > div {
-  height: 100vh;
-  width: 100%;
-  flex: 1;
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-areas:
+    'nav header-main'
+    'footer footer';
 }
 
 /* Nav */
@@ -53,55 +49,59 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 60px;
-  padding: 30px 35px;
-  grid-area: 1 / 1 / 2 / 2;
+  padding: 20px 85px 20px 20px;
+  grid-area: nav;
 }
 
-.nav-head {
+.nav-logo {
   display: flex;
   gap: 10px;
   align-items: center;
+  cursor: pointer;
 }
 
-.dashboard-icon {
-  height: 47px;
+.dashboard-logo {
+  height: 50px;
 }
 
 .dashboard-title {
   font-family: Roboto, sans-serif;
-  font-size: 27px;
+  font-size: 3rem;
   font-weight: bold;
   color: white;
 }
 
-.menu-1, .menu-2 {
+.menu-1,
+.menu-2 {
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  gap: 25px;
   margin-left: 8px;
 }
 
-.menu-1 > li, .menu-2 > li {
+.menu-1 > li,
+.menu-2 > li {
   list-style-type: none;
   display: flex;
   align-items: center;
   gap: 23px;
+  cursor: pointer;
 }
 
 .nav-icon {
-  height: 26px;
+  height: 2.6rem;
 }
 
 .nav-text {
   font-family: Roboto, sans-serif;
-  font-size: 21px;
-  font-weight: bold;
+  font-size: 2.3rem;
   color: white;
 }
 
 .container-header-main {
   display: flex;
   flex-direction: column;
+  grid-area: header-main;
 }
 
 /* Header */
@@ -109,12 +109,12 @@ nav {
 header {
   display: flex;
   flex-direction: column;
-  padding: 8px 40px;
-  box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.15);
+  padding: 10px 75px 10px 40px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.15);
   height: fit-content;
   z-index: 2;
   position: relative;
-  gap: 5px;
+  gap: 13px;
 }
 
 .container-header-top {
@@ -122,33 +122,36 @@ header {
   justify-content: space-between;
 }
 
-.container-header-top-left {
+.container-header-search {
   display: flex;
   place-items: center;
   gap: 20px;
   flex: 1;
-  margin-right: 145px;
+  width: 100%;
 }
 
-.search-icon, .notification-icon {
-  height: 23px;
+.search-icon,
+.notification-icon {
+  height: 25px;
   cursor: pointer;
 }
 
 .search-input {
-  flex: 1;
-  width: max(200px, 100%);
+  width: max(200px, 70%);
   height: 29px;
   background-color: #E2E8F0;
   border: none;
   border-radius: calc(27.5px / 2);
+  padding: 5px 15px;
+  font-family: Roboto, sans-serif;
+  font-size: 1.5rem;
+  font-weight: normal;
 }
 
-.container-header-top-right {
+.container-header-profile {
   display: flex;
   place-items: center;
   gap: 30px;
-  margin-right: 35px;
 }
 
 .account-profile-picture {
@@ -158,9 +161,8 @@ header {
 
 .account-name {
   font-family: Roboto, sans-serif;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: bold;
-  color: black;
 }
 
 .container-header-bottom {
@@ -176,33 +178,32 @@ header {
 }
 
 .intro-image {
-  height: 80px;
+  height: 90px;
   border-radius: 50%;
 }
 
 .container-intro {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 3px;
+  min-width: max-content;
+  margin-right: 20px;
 }
 
 .container-intro > span:nth-child(1) {
   font-family: Roboto, sans-serif;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: black;
 }
 
 .intro-name {
   font-family: Roboto, sans-serif;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-weight: bold;
-  color: black;
 }
 
 .container-header-bottom-right {
   display: flex;
-  margin-right: 25px;
   gap: 30px;
 }
 
@@ -214,13 +215,13 @@ header {
 .container-header-bottom-right > li > button {
   background-color: var(--dashboard-blue);
   font-family: Roboto, sans-serif;
-  font-size: 15px;
+  font-size: 1.6rem;
   font-weight: bold;
   color: white;
-  height: 38px;
-  width: 97px;
+  height: 40px;
+  width: 100px;
   border: none;
-  border-radius: calc(38px / 2);
+  border-radius: 20px;
   cursor: pointer;
 }
 
@@ -228,32 +229,31 @@ header {
 
 main {
   display: grid;
-  grid-template-columns: 2.5fr 1fr;
+  grid-template-columns: 2.75fr 1fr;
   column-gap: 24px;
   background-color: var(--background-light-grey);
-  padding: 40px 30px 75px 27px;
+  padding: 37px 35px 75px 20px;
 }
 
 /* Projects */
 
 .projects {
-  grid-area: 1 / 1 / 2 / 2;
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-.projects > h1, .announcements > h1, .trending > h1 {
+.projects > h1,
+.announcements > h1,
+.trending > h1 {
   font-family: Roboto, sans-serif;
-  font-size: 21px;
-  font-weight: bold;
-  color: black;
+  font-size: 2.1rem;
+  font-weight: medium;
 }
 
 .container-projects {
   display: grid;
-  grid-template-rows: repeat(auto-fit, minmax(225px, 1fr));
-  grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 29px;
 }
 
@@ -262,9 +262,9 @@ main {
   flex-direction: column;
   background-color: white;
   padding: 34px 25px 28px;
-  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.15);
+  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  border-left: 8px solid var(--project-yellow);
+  border-left: 9px solid var(--project-yellow);
   justify-content: space-between;
   gap: 35px;
 }
@@ -272,19 +272,17 @@ main {
 .container-project-info {
   display: flex;
   flex-direction: column;
-  gap: 3px;
 }
 
 .project-title {
   font-family: Roboto, sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  color: black;
+  font-size: 1.9rem;
+  font-weight: medium;
 }
 
 .project-text {
   font-family: Roboto, sans-serif;
-  font-size: 16px;
+  font-size: 1.7rem;
   color: var(--text-grey);
 }
 
@@ -292,8 +290,8 @@ main {
   list-style-type: none;
   display: flex;
   align-self: flex-end;
-  margin-right: 8px;
-  gap: 25px;
+  margin-right: 5px;
+  gap: 30px;
 }
 
 .container-projects-actions > li > a {
@@ -301,7 +299,7 @@ main {
 }
 
 .project-icon {
-  height: 24px;
+  height: 25px;
 }
 
 .container-announcements-trending {
@@ -316,7 +314,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-right: 15px;
 }
 
 .container-announcements {
@@ -324,7 +321,7 @@ main {
   padding: 30px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.15);
+  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
 .container-announcements > li {
@@ -333,15 +330,14 @@ main {
 
 .announcement-title {
   font-family: Roboto, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
-  margin-bottom: 3px;
+  font-size: 1.5rem;
+  font-weight: medium;
+  margin-bottom: 2px;
 }
 
 .announcement-text {
   font-family: Roboto, sans-serif;
-  font-size: 13px;
+  font-size: 1.3rem;
   color: var(--text-grey);
 }
 
@@ -357,7 +353,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-right: 15px;
 }
 
 .trending > menu {
@@ -365,7 +360,7 @@ main {
   padding: 25px;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.15);
+  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -390,14 +385,13 @@ main {
 
 .trending-tag {
   font-family: Roboto, sans-serif;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: bold;
-  color: black;
 }
 
 .trending-name {
   font-family: Roboto, sans-serif;
-  font-size: 15px;
+  font-size: 1.5rem;
   color: var(--text-grey);
 }
 
@@ -408,6 +402,7 @@ footer {
   align-items: center;
   background-color: var(--github-black);
   padding: 12px 40px;
+  grid-area: footer;
 }
 
 .made-by {
