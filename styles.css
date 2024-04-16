@@ -16,15 +16,7 @@
   font-weight: bold;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
-  font-size: 62.5%;
-  --github-black: #0D1117;
   --dashboard-blue: #1992D4;
   --project-yellow: #F0B429;
   --text-grey: #8a8a8a;
@@ -32,10 +24,6 @@ html {
 }
 
 body {
-  /* display: inline-flex; */
-  /* flex-direction: column; */
-  min-height: 100vh;
-  min-width: calc(100vw - (100vw - 100%));
   display: grid;
   grid-template-areas:
     'nav header-main'
@@ -49,8 +37,15 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 60px;
-  padding: 20px 85px 20px 20px;
+  padding: 20px;
   grid-area: nav;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 300px;
 }
 
 .nav-logo {
@@ -81,7 +76,6 @@ nav {
 
 .menu-1 > li,
 .menu-2 > li {
-  list-style-type: none;
   display: flex;
   align-items: center;
   gap: 23px;
@@ -111,10 +105,11 @@ header {
   flex-direction: column;
   padding: 10px 75px 10px 40px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.15);
-  height: fit-content;
-  z-index: 2;
-  position: relative;
-  gap: 13px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  gap: 10px;
+  background-color: white;
 }
 
 .container-header-top {
@@ -127,7 +122,6 @@ header {
   place-items: center;
   gap: 20px;
   flex: 1;
-  width: 100%;
 }
 
 .search-icon,
@@ -145,7 +139,6 @@ header {
   padding: 5px 15px;
   font-family: Roboto, sans-serif;
   font-size: 1.5rem;
-  font-weight: normal;
 }
 
 .container-header-profile {
@@ -287,7 +280,7 @@ main {
 }
 
 .container-projects-actions {
-  list-style-type: none;
+  list-style: none;
   display: flex;
   align-self: flex-end;
   margin-right: 5px;
@@ -317,7 +310,7 @@ main {
 }
 
 .container-announcements {
-  list-style-type: none;
+  list-style: none;
   padding: 30px;
   background-color: white;
   border-radius: 10px;
@@ -398,28 +391,18 @@ main {
 /* Footer */
 
 footer {
-  display: flex;
-  align-items: center;
-  background-color: var(--github-black);
-  padding: 12px 40px;
   grid-area: footer;
-}
-
-.made-by {
-  font-size: 12px;
-  font-family: cursive;
-  color: white;
-  margin: 0 auto;
-}
-
-.github-icon {
-  height: 25px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 @media (max-width: 1150px) {
   nav {
     padding: 20px;
     align-items: center;
+    width: 100%;
   }
 
   .menu-1,
@@ -434,20 +417,12 @@ footer {
 }
 
 @media (max-width: 992px) {
-  html {
-    font-size: 67.5%;
-  }
-
   header {
     padding: 20px 40px;
   }
 
   .container-header-top {
     gap: 20px;
-  }
-
-  .search-input {
-    /* width: 70%; */
   }
 
   .account-profile-picture,
@@ -468,11 +443,5 @@ footer {
   main {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-}
-
-@media (max-width: 576px) {
-  html {
-    font-size: 72.5%;
   }
 }
